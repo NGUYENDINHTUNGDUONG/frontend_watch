@@ -5,6 +5,8 @@ import HomeInfoBox from "./HomeInfoBox";
 import { productData } from "../../components/corousel/data";
 import CarouselItem from "../../components/corousel/CarouselItem";
 import ProductCarousel from "../../components/corousel/Carousel";
+import ProductCategory  from "./ProductCategory";
+import FooterLinks from "../../components/footer/FooterLinks";
 
 const PageHeading = ({ heading, btnText }) => {
   return (
@@ -19,7 +21,7 @@ const PageHeading = ({ heading, btnText }) => {
 };
 
 const Home = () => {
-  const productss = productData.map((item) => {
+  const productss = productData.map((item) => (
     <div key={item.id}>
       <CarouselItem
         url={item.imageurl}
@@ -27,8 +29,8 @@ const Home = () => {
         price={item.price}
         description={item.description}
       />
-    </div>;
-  });
+    </div>
+  ));
   return (
     <>
       <Slider />
@@ -39,6 +41,19 @@ const Home = () => {
           <ProductCarousel products={productss} />
         </div>
       </section>
+      <section className="--bg-grey">
+        <div className="container">
+          <h3> Categories </h3>
+          <ProductCategory />
+        </div>
+      </section>
+      <section>
+        <div className="container">
+          <PageHeading heading={"woman"} btnText={"Shop Now"} />
+          <ProductCarousel products={productss} />
+        </div>
+      </section>
+      <FooterLinks />
     </>
   );
 };

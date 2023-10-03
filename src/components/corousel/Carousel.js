@@ -3,19 +3,19 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { responsive } from "./data";
 
-const ProductCarousel = ({ product }) => {
+const ProductCarousel = ({ products }) => {
   return (
     <div>
       <Carousel
-        showDots={true}
+        showDots={false}
         responsive={responsive}
         infinite={true}
-        autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        autoPlay={true}
         autoPlaySpeed={3000}
         customTransition="all 500ms ease"
         transitionDuration={1000}
       >
-        {product}
+        {products}
       </Carousel>
     </div>
   );
